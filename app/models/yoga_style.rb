@@ -1,0 +1,2 @@
+class YogaStyle < ApplicationRecord
+end
