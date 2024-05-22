@@ -1,6 +1,6 @@
 require "test_helper"
 
-class ContactMessageTest < ActiveSupport::TestCase
+class ContactFormTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -1,6 +1,6 @@
-class CreateContactMessages < ActiveRecord::Migration[7.1]
+class CreateContactForms < ActiveRecord::Migration[7.1]
   def change
-    create_table :contact_messages do |t|
+    create_table :contact_forms do |t|
       t.string :name
       t.string :email
       t.string :subject
