@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'teacher_cvs/index'
+  get 'teacher_cvs/show'
+  get 'teacher_cvs/new'
+  get 'teacher_cvs/create'
+  get 'teacher_cvs/edit'
+  get 'teacher_cvs/update'
+  get 'teacher_cvs/destroy'
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
