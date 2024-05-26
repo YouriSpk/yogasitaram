@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   # Utiliser resources pour générer les routes RESTful pour chaque modèle
   resources :home_pages
-  resources :contacts, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   resources :schedules
   resources :pre_natals
   resources :yoga_styles
   resources :teacher_cvs
   resources :offered_formats
   resources :corporate_offers
+  resources :contact_forms
 
   # Routes pour devise
   devise_for :users
