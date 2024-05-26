@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :pre_natals
   resources :yoga_styles
   resources :teacher_cvs
+  resources :offered_formats
+  resources :corporate_offers
 
   # Routes pour devise
   devise_for :users
