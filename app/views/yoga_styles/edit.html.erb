@@ -1,2 +1,10 @@
-<h1>YogaStyles#edit</h1>
-<p>Find me in app/views/yoga_styles/edit.html.erb</p>
+<h1>Editing yoga style</h1>
+
+<%= render "form", yoga_style: @yoga_style %>
+
+<br>
+
+<div>
+  <%= link_to "Show this yoga style", @yoga_style %> |
+  <%= link_to "Back to yoga styles", yoga_styles_path %>
+</div>
