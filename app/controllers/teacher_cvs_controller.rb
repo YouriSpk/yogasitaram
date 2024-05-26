@@ -1,6 +1,7 @@
 class TeacherCvsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_teacher_cv, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /teacher_cvs or /teacher_cvs.json
   def index
@@ -22,7 +23,7 @@ class TeacherCvsController < ApplicationController
 
   # POST /teacher_cvs or /teacher_cvs.json
   def create
-    @teacher_cv = TeacherCv.new(teacher_cv_params)
+    @teacher_cv = current_user.teacher_cvs.build(teacher_cv_params)
 
     respond_to do |format|
       if @teacher_cv.save
@@ -59,13 +60,14 @@ class TeacherCvsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_teacher_cv
-      @teacher_cv = TeacherCv.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def teacher_cv_params
-      params.require(:teacher_cv).permit(:title, :content)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_teacher_cv
+    @teacher_cv = TeacherCv.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def teacher_cv_params
+    params.require(:teacher_cv).permit(:name, :experience, :certifications)
+  end
 end

@@ -1,2 +1,27 @@
-<h1>TeacherCvs#index</h1>
-<p>Find me in app/views/teacher_cvs/index.html.erb</p>
+<div class="container mt-5">
+  <% if notice %>
+    <div class="alert alert-success">
+      <%= notice %>
+    </div>
+  <% end %>
+
+  <h1>Teacher CVs</h1>
+
+  <div class="card mt-4">
+    <ul class="list-group list-group-flush" id="teacher_cvs">
+      <% @teacher_cvs.each do |teacher_cv| %>
+        <li class="list-group-item">
+          <%= render teacher_cv %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <% if user_signed_in? %>
+    <div id="button-trio" class="d-flex justify-content-start mt-3 container">
+      <%= link_to "Edit", edit_teacher_cv_path(@teacher_cvs.first), class: "btn btn-primary mr-5" if @teacher_cvs.any? %>
+      <%= link_to "Add +1", new_teacher_cv_path, class: "btn btn-success mr-5" %>
+      <%= button_to "Delete", @teacher_cvs.first, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger', style: 'margin-left: auto;' if @teacher_cvs.any? %>
+    </div>
+  <% end %>
+</div>

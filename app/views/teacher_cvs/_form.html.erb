@@ -1,0 +1,39 @@
+<div class="container mt-5">
+  <%= simple_form_for(@teacher_cv, html: { class: 'form-horizontal' }) do |f| %>
+    <% if @teacher_cv.errors.any? %>
+      <div class="alert alert-danger">
+        <h4>Veuillez corriger les erreurs suivantes :</h4>
+        <ul>
+          <% @teacher_cv.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :name, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.input :name, label: false, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :experience, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.input :experience, label: false, as: :text, input_html: { class: 'form-control' } %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :certifications, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.input :certifications, label: false, as: :text, input_html: { class: 'form-control' } %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>

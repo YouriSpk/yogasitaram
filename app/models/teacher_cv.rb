@@ -1,5 +1,7 @@
 class TeacherCv < ApplicationRecord
-  validates :title, presence: true
-  validates :content, presence: true
   belongs_to :user
+
+  validates :name, presence: true
+  validates :experience, presence: true
+  validates :certifications, presence: true
 end
