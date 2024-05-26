@@ -1,4 +1,4 @@
 class YogaStyle < ApplicationRecord
-  validates :title, presence: true
+  validates :name, presence: true
   validates :description, presence: true
 end

@@ -67,6 +67,6 @@ class YogaStylesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def yoga_style_params
-      params.require(:yoga_style).permit(:title, :description)
+      params.require(:yoga_style).permit(:name, :description)
     end
 end
