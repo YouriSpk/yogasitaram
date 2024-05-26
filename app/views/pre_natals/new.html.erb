@@ -1,2 +1,9 @@
-<h1>PreNatals#new</h1>
-<p>Find me in app/views/pre_natals/new.html.erb</p>
+<h1>New Pre Natal</h1>
+
+<%= render "form", pre_natal: @pre_natal %>
+
+<br>
+
+<div>
+  <%= link_to "Back to Pre Natals", pre_natals_path %>
+</div>

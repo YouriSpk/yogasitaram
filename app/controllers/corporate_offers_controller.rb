@@ -1,6 +1,7 @@
 class CorporateOffersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_corporate_offer, only: %i[ show edit update destroy ]
+  before_action :set_corporate_offer, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /corporate_offers or /corporate_offers.json
   def index
@@ -22,7 +23,7 @@ class CorporateOffersController < ApplicationController
 
   # POST /corporate_offers or /corporate_offers.json
   def create
-    @corporate_offer = CorporateOffer.new(corporate_offer_params)
+    @corporate_offer = current_user.corporate_offers.build(corporate_offer_params)
 
     respond_to do |format|
       if @corporate_offer.save

@@ -1,2 +1,10 @@
-<h1>PreNatals#edit</h1>
-<p>Find me in app/views/pre_natals/edit.html.erb</p>
+<h1>Editing pre natal</h1>
+
+<%= render "form", pre_natal: @pre_natal %>
+
+<br>
+
+<div>
+  <%= link_to "Show this pre natal", @pre_natal %> |
+  <%= link_to "Back to pre natals", pre_natals_path %>
+</div>

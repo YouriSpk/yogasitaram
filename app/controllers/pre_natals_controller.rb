@@ -1,6 +1,7 @@
 class PreNatalsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_pre_natal, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /pre_natals or /pre_natals.json
   def index
@@ -22,7 +23,7 @@ class PreNatalsController < ApplicationController
 
   # POST /pre_natals or /pre_natals.json
   def create
-    @pre_natal = PreNatal.new(pre_natal_params)
+    @pre_natal = current_user.pre_natals.build(pre_natal_params)
 
     respond_to do |format|
       if @pre_natal.save
@@ -66,6 +67,6 @@ class PreNatalsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pre_natal_params
-      params.require(:pre_natal).permit(:title, :description)
+      params.require(:pre_natal).permit(:name, :description)
     end
 end

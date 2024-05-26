@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :teacher_cvs, dependent: :destroy
   has_many :offered_formats, dependent: :destroy
+  has_many :pre_natals, dependent: :destroy
 end
