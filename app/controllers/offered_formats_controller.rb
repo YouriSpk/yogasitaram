@@ -1,6 +1,7 @@
 class OfferedFormatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_offered_format, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /offered_formats or /offered_formats.json
   def index
@@ -22,7 +23,7 @@ class OfferedFormatsController < ApplicationController
 
   # POST /offered_formats or /offered_formats.json
   def create
-    @offered_format = OfferedFormat.new(offered_format_params)
+    @offered_format = current_user.offered_formats.build(offered_format_params)
 
     respond_to do |format|
       if @offered_format.save

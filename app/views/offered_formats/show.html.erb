@@ -1,0 +1,16 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <p class="text-success"><%= notice %></p>
+
+      <%= render @offered_format %>
+
+      <div class="text-center mt-4">
+        <%= link_to "Edit this offered format", edit_offered_format_path(@offered_format), class: 'btn btn-warning' %> |
+        <%= link_to "Back to offered formats", offered_formats_path, class: 'btn btn-secondary' %>
+
+        <%= button_to "Destroy this offered format", @offered_format, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+      </div>
+    </div>
+  </div>
+</div>

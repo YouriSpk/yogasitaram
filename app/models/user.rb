@@ -4,5 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :teacher_cvs, dependent: :destroy
-
+  has_many :offered_formats, dependent: :destroy
 end
