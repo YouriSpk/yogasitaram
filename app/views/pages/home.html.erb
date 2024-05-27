@@ -1,2 +1,15 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <% if @home_page.present? %>
+        <h1 class="text-center"><%= @home_page.title %></h1>
+
+        <div class="content mt-4">
+          <%= sanitize @home_page.content.html_safe %>
+        </div>
+      <% else %>
+        <p class="text-center">No content available</p>
+      <% end %>
+    </div>
+  </div>
+</div>
