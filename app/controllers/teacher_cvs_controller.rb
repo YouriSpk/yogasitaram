@@ -1,7 +1,6 @@
 class TeacherCvsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_teacher_cv, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_teacher_cv, only: %i[ show edit update destroy ]
 
   # GET /teacher_cvs or /teacher_cvs.json
   def index

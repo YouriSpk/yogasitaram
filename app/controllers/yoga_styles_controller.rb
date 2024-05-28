@@ -1,5 +1,5 @@
 class YogaStylesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_yoga_style, only: %i[ show edit update destroy ]
 
 
