@@ -10,6 +10,12 @@
       <% else %>
         <p class="text-center">No content available</p>
       <% end %>
+
+      <% if user_signed_in? %>
+        <div class="text-center mt-4">
+          <%= link_to 'Add/Update Content', new_home_page_path, class: 'btn btn-primary' %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
