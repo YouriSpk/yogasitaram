@@ -1,9 +1,17 @@
 <div class="container mt-5">
+  <!-- Bannière -->
+  <div class="banner position-relative d-flex justify-content-center align-items-center mb-4">
+    <img src="https://images.unsplash.com/photo-1550859492-d5da9d8e45f3?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="form banner">
+    <% if @home_page.present? %>
+      <h1 class="text-white position-absolute bottom-0 start-50 translate-middle-x mb-4"><%= @home_page.title %></h1>
+    <% else %>
+      <h1 class="text-white position-absolute bottom-0 start-50 translate-middle-x mb-4">No Title Available</h1>
+    <% end %>
+  </div>
+
   <div class="row justify-content-center">
     <div class="col-md-8">
       <% if @home_page.present? %>
-        <h1 class="text-center"><%= @home_page.title %></h1>
-
         <div class="content mt-4">
           <%= sanitize @home_page.content.html_safe %>
         </div>
@@ -19,3 +27,35 @@
     </div>
   </div>
 </div>
+
+<style>
+  .banner {
+    overflow: hidden;
+    position: relative;
+    height: 400px;
+    width: 100%;
+  }
+
+  .banner h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    color: white;
+    font-family: "Cutive Mono", serif;
+    font-size: 70px;
+  }
+
+  .banner img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .banner h1 {
+      font-size: 30px;
+    }
+  }
+</style>
